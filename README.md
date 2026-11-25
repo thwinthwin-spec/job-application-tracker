@@ -1,133 +1,133 @@
 # Job Application Tracker
 
-Job Application Tracker ဟာ ကိုယ်လျှောက်ထားခဲ့တဲ့ အလုပ်တွေကို တစ်နေရာတည်းမှာ မှတ်သား၊ ရှာဖွေ၊ စီမံခန့်ခွဲဖို့အတွက် ရေးထားတဲ့ full-stack app တစ်ခုပါ။ Excel file တွေ အများကြီးထဲ ရှာနေစရာမလိုဘဲ လျှောက်လွှာအခြေအနေ၊ နောက်ဆက်တွဲလုပ်ရမယ့်နေ့ (follow-up date) နဲ့ စမ်းသပ်မှုနေ့ (interview date) တွေကို ရှင်းရှင်းလင်းလင်း မြင်နိုင်ပါတယ်။
+The Job Application Tracker is a full-stack app for recording, searching and managing the jobs you have applied to. Instead of digging through many Excel files, you can see application status, follow-up dates and interview dates clearly in one place.
 
-ဒီ project မှာ အဓိက အပိုင်း ၂ ပိုင်း ရှိပါတယ်။
+The project has two main parts:
 
-- **server/** — Express API + MongoDB (data သိမ်းတဲ့နေရာ)
-- **client/** — React/Vite website (အသုံးပြုသူ မြင်ရတဲ့နေရာ)
+- **server/** — Express API + MongoDB (where data is stored)
+- **client/** — React/Vite website (what the user sees)
 
-## အကျဉ်း — ဒီ project က ဘာလဲ? (At a glance)
+## At a glance — what is this project?
 
 | | |
 | --- | --- |
 | **Project** | Job Application Tracker |
-| **အမျိုးအစား** | Full-stack web app — အလုပ်လျှောက်လွှာတွေကို ကိုယ်တိုင် စီမံတဲ့ personal organizer |
-| **ဘာလုပ်ပေးလဲ** | လျှောက်ထားခဲ့တဲ့ အလုပ်တွေကို status / follow-up / interview အလိုက် မှတ်သား, search + filter + sort, dashboard, CSV export |
+| **Type** | Full-stack web app — a personal organizer for job applications |
+| **What it does** | Record jobs by status / follow-up / interview, search + filter + sort, dashboard, CSV export |
 | **Tech** | React + Vite · Node.js + Express · MongoDB + Mongoose · JWT + bcrypt |
 | **Ports** | API `5001` · Website `5174` |
-| **Demo login** | `demo@jobtracker.test / Demo@123` (နမူနာ ၁၂ ခု), `other@jobtracker.test / Other@123` (သီးခြား user) |
-| **အခြေအနေ** | ပြီးစီးပြီး demo project။ အချက်အလက်အားလုံး **fictional** ဖြစ်ပါတယ်။ |
+| **Demo login** | `demo@jobtracker.test / Demo@123` (12 sample records), `other@jobtracker.test / Other@123` (separate user) |
+| **Status** | Completed demo project. All data is **fictional**. |
 
-**In short (English):** A full-stack personal tracker for job applications. Log companies, roles, statuses, follow-up and interview dates; search and filter them; see dashboard stats; export to CSV. Each signed-in user only sees their own data. Built with React, Express and MongoDB as a learning/demo project with fictional data.
+In short: A full-stack personal tracker for job applications. Log companies, roles, statuses, follow-up and interview dates; search and filter them; see dashboard stats; export to CSV. Each signed-in user only sees their own data. Built with React, Express and MongoDB as a learning/demo project with fictional data.
 
-## ရည်ရွယ်ချက်
+## Purpose
 
-အလုပ်ရှာနေတဲ့သူတစ်ယောက်အနေနဲ့ အောက်ပါအချက်တွေ လွယ်လွယ်လုပ်နိုင်အောင် ဒီ app က ကူညီပါတယ်။
+This app helps a job seeker do the following easily:
 
-- လျှောက်ထားခဲ့တဲ့ ကုမ္ပဏီ၊ ရာထူး၊ နေရာ၊ posting URL တွေ မှတ်ထားခြင်း
-- `Saved`, `Applied`, `Interview`, `Offer`, `Rejected`, `Withdrawn` စတဲ့ status တွေနဲ့ အခြေအနေ ခွဲခြားခြင်း
-- Follow-up လုပ်ရမယ့်နေ့နဲ့ interview နေ့တွေကို မမေ့အောင် စစ်ဆေးခြင်း
-- Search, status filter, employment type filter, date range filter တွေနဲ့ လိုချင်တာကို မြန်မြန်ရှာခြင်း
-- Sort နဲ့ pagination သုံးပြီး များတဲ့ data တွေကို စနစ်တကျ ကြည့်ခြင်း
-- Dashboard မှာ စုစုပေါင်းအရေအတွက်၊ status အလိုက် အရေအတွက်၊ မကြာခင် လုပ်ရမယ့် အရာတွေကို ကြည့်ခြင်း
-- CSV export နဲ့ အချက်အလက်တွေကို spreadsheet ထဲ ယူသွားခြင်း
-- Login လုပ်ထားသူတစ်ယောက်ရဲ့ ကိုယ်ပိုင် data ကိုပဲ မြင်ရအောင် ကာကွယ်ခြင်း
+- Record the company, role, location and posting URL of each application
+- Track status with `Saved`, `Applied`, `Interview`, `Offer`, `Rejected`, `Withdrawn`
+- Keep track of follow-up and interview dates
+- Find things quickly with search, status filter, employment-type filter and date-range filter
+- View large data sets neatly with sorting and pagination
+- See totals, counts by status and upcoming items on the dashboard
+- Export data to a spreadsheet with CSV export
+- Make sure a signed-in user only sees their own data
 
-> **မှတ်ချက်:** ဒီ project ထဲက နမူနာအချက်အလက်အားလုံးက **fictional** (ဇာတ်လမ်းထဲကသာ) ဖြစ်ပါတယ်။
+> **Note:** All sample data in this project is **fictional**. It does not represent real people or companies.
 
 ## Tech stack
 
-| အပိုင်း | သုံးထားတာ | ရှင်းလင်းချက် |
+| Layer | Used | Purpose |
 | --- | --- | --- |
-| API | Node.js, Express | HTTP request တွေ လက်ခံပြီး response ပြန်ပေးတယ် |
-| Database | MongoDB, Mongoose | Application နဲ့ User data တွေ သိမ်းတယ် |
-| Auth | JWT, bcrypt | Token နဲ့ login ထားခြင်း၊ password ကို hash လုပ်သိမ်းခြင်း |
-| Website | React, Vite | Page တွေ၊ form တွေ၊ table တွေ ဖန်တီးတယ် |
-| HTTP client | Axios | Client က API ကို ခေါ်ဖို့ သုံးတယ် |
-| State | React Context API | Login ထားတဲ့ user အချက်အလက်ကို page တွေဆီ မျှသုံးတယ် |
-| Styling | CSS (`index.css`) | ရိုးရှင်းပြီး ဖတ်ရလွယ်တဲ့ UI |
-| Tools | npm, PowerShell (`make-zip.ps1`) | Install/run/zip လုပ်ဖို့ |
+| API | Node.js, Express | Receives HTTP requests and returns responses |
+| Database | MongoDB, Mongoose | Stores application and user data |
+| Auth | JWT, bcrypt | Token-based login and hashed passwords |
+| Website | React, Vite | Builds pages, forms and tables |
+| HTTP client | Axios | Used by the client to call the API |
+| State | React Context API | Shares the signed-in user between pages |
+| Styling | CSS (`index.css`) | Simple, readable UI |
+| Tools | npm, PowerShell (`make-zip.ps1`) | Install / run / zip |
 
 ## Folder summary
 
-| နေရာ | အကျဉ်း |
+| Location | Summary |
 | --- | --- |
-| `.gitignore` | `node_modules`, build output, secret file တွေကို git ထဲ မပါအောင် ဖယ်ထားတယ် |
-| `package.json` | Root scripts (`install:all`, `seed`, `dev:server`, `dev:client`, `build:client`) တွေ ပါတယ် |
-| `make-zip.ps1` | Project ကို zip လုပ်ပေးတဲ့ PowerShell script |
-| `README.md` | ဒီစာရွက် — install/run လုပ်နည်း အကျဉ်း |
-| `API_DOCUMENTATION.md` | Endpoint တွေ၊ request/response ပုံစံ၊ curl ဥပမာတွေ |
-| `PROJECT_STRUCTURE.md` | File tree အပြည့်အစုံနဲ့ ဖိုင်တိုင်းရဲ့ ရည်ရွယ်ချက် |
-| `BEGINNER_GUIDE.md` | "Create application" request တစ်ခု ဘယ်လို စီးဆင်းသလဲ ရှင်းပြထားတယ် |
+| `.gitignore` | Excludes `node_modules`, build output and secret files from git |
+| `package.json` | Root scripts (`install:all`, `seed`, `dev:server`, `dev:client`, `build:client`) |
+| `make-zip.ps1` | PowerShell script that creates a zip of the project |
+| `README.md` | This document — a short install/run guide |
+| `API_DOCUMENTATION.md` | Endpoints, request/response shapes and curl examples |
+| `PROJECT_STRUCTURE.md` | Complete file tree with the purpose of every file |
+| `BEGINNER_GUIDE.md` | Explains how a "create application" request flows through the code |
 | `server/` | API, config, models, controllers, routes, middleware, utils, seed |
 | `client/` | React pages, components, api helpers, auth context, utils |
 
-အသေးစိတ် tree ကို [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) မှာ ကြည့်ပါ။
+See the full tree in [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md).
 
 ## Prerequisites
 
-မစတင်ခင် ဒီအရာတွေ ရှိထားပါ။
+Before you start, make sure you have:
 
-1. **Node.js 18+** နဲ့ **npm** — `node -v` နဲ့ `npm -v` လို့ ရိုက်ပြီး စစ်လို့ရပါတယ်။
-2. **MongoDB** ကို ဒီမှာ run ဖြစ်နေရမယ် — `mongodb://127.0.0.1:27017/job_tracker`
-3. **PowerShell** — zip လုပ်ချင်ရင် `make-zip.ps1` အတွက် လိုအပ်ပါတယ်။
-4. Code editor တစ်ခု (ဥပမာ VS Code)။
+1. **Node.js 18+** and **npm** — check with `node -v` and `npm -v`
+2. **MongoDB** running at `mongodb://127.0.0.1:27017/job_tracker`
+3. **PowerShell** — needed by `make-zip.ps1` if you want to create a zip
+4. A code editor (for example VS Code)
 
-**Ports:** API က `5001`, website က `5174` ကို သုံးပါတယ်။ အခြား project နဲ့ port မတိုက်မိအောင် ဒီနံပါတ်တွေကို ရွေးထားတာပါ။
+**Ports:** The API uses `5001` and the website uses `5174`. These were chosen to avoid conflicts with other projects.
 
-## Install လုပ်နည်း
+## Installation
 
-Project root (`job-application-tracker` ရှိတဲ့နေရာ) မှာ terminal ဖွင့်ပြီး:
+Open a terminal in the project root (where `job-application-tracker` lives):
 
 ```powershell
 npm run install:all
 ```
 
-ဒီ script က `server` နဲ့ `client` နှစ်ခုလုံးအတွက် dependencies တွေ တပ်ဆင်ပေးပါတယ်။ တစ်ခုချင်းစီ လုပ်ချင်ရင်လည်း `npm install --prefix server` နဲ့ `npm install --prefix client` ကို သုံးလို့ရပါတယ်။
+This installs dependencies for both `server` and `client`. To install them separately, use `npm install --prefix server` and `npm install --prefix client`.
 
 ## Environment setup
 
-### API (`server/.env.example` အခြေခံ)
+### API (based on `server/.env.example`)
 
-`server/.env.example` ထဲမှာ လိုအပ်တဲ့ key တွေ ရှိပါတယ်။ ဒီတန်ဖိုးတွေကို သတ်မှတ်ပါ။
+`server/.env.example` lists the required keys. Set these values:
 
-| Variable | တန်ဖိုး / ရည်ရွယ်ချက် |
+| Variable | Value / purpose |
 | --- | --- |
-| `PORT` | `5001` — API နားထောင်မယ့် port |
+| `PORT` | `5001` — port the API listens on |
 | `MONGODB_URI` | `mongodb://127.0.0.1:27017/job_tracker` |
-| `JWT_SECRET` | ကိုယ်ရေးကိုယ်တာ လျှို့ဝှက် string — တကယ့် project မှာ ပြောင်းပါ |
-| `JWT_EXPIRES_IN` | `7d` — token ၇ ရက်အကြာ ကုန်တယ် |
-| `CLIENT_ORIGIN` | `http://localhost:5174` — React က လာတဲ့ request ကို ခွင့်ပြုတယ် |
+| `JWT_SECRET` | Private secret string — change it in a real project |
+| `JWT_EXPIRES_IN` | `7d` — token expires after 7 days |
+| `CLIENT_ORIGIN` | `http://localhost:5174` — allows requests from React |
 | `SEED_USER_EMAIL` | `demo@jobtracker.test` |
 | `SEED_USER_PASSWORD` | `Demo@123` |
 | `SEED_OTHER_EMAIL` | `other@jobtracker.test` |
 | `SEED_OTHER_PASSWORD` | `Other@123` |
 
-### Website (`client/.env.example` အခြေခံ)
+### Website (based on `client/.env.example`)
 
-| Variable | တန်ဖိုး |
+| Variable | Value |
 | --- | --- |
 | `VITE_API_URL` | `http://localhost:5001/api` |
 
-> Secret တွေကို git ထဲ မထည့်ပါနဲ့။ `.gitignore` က ကာကွယ်ပေးပေမယ့် မျှသုံးတဲ့အခါ `.env.example` ပုံစံကိုပဲ မျှပါ။
+> Do not commit secrets. `.gitignore` protects you, but when sharing, share the `.env.example` form only.
 
-## Seed လုပ်နည်း
+## Seeding
 
 ```powershell
 npm run seed
 ```
 
-Seed က **idempotent** ဖြစ်ပါတယ် — နှစ်ကြိမ်တွန်းလို့ duplicate data မဖြစ်ပါဘူး။ ဒီလို ဖန်တီးပေးပါတယ်။
+The seed is **idempotent** — running it twice does not create duplicate data. It creates:
 
-| Account | Application အရေအတွက် |
+| Account | Number of applications |
 | --- | --- |
 | `demo@jobtracker.test` / `Demo@123` | 12 (fictional) |
 | `other@jobtracker.test` / `Other@123` | 2 (fictional) |
 
-## Run လုပ်နည်း
+## Running
 
-Terminal **၂ ခု** ဖွင့်ပြီး project root ကနေ အောက်ပါအတိုင်း လုပ်ပါ။
+Open **two** terminals from the project root.
 
 **Terminal 1 — API**
 
@@ -141,12 +141,12 @@ npm run dev:server
 npm run dev:client
 ```
 
-ပြီးရင် ဒီလင့်တွေကို ဖွင့်ပါ။
+Then open:
 
 - Website: `http://localhost:5174`
 - API base: `http://localhost:5001/api`
 
-Production အတွက် website ကို build လုပ်ချင်ရင်:
+To build the website for production:
 
 ```powershell
 npm run build:client
@@ -154,53 +154,53 @@ npm run build:client
 
 ## Demo credentials
 
-| အီးမေးလ် | Password | မှတ်ချက် |
+| Email | Password | Notes |
 | --- | --- | --- |
-| `demo@jobtracker.test` | `Demo@123` | နမူနာ application ၁၂ ခု ပါတယ် |
-| `other@jobtracker.test` | `Other@123` | နမူနာ application ၂ ခု ပါတယ် — သီးခြား user |
+| `demo@jobtracker.test` | `Demo@123` | 12 sample applications |
+| `other@jobtracker.test` | `Other@123` | 2 sample applications — a separate user |
 
-ဒီ account နှစ်ခုနဲ့ login လုပ်ပြီး တစ်ယောက်ရဲ့ data က အခြားသူဆီ မမြင်ရတာကို စမ်းကြည့်နိုင်ပါတယ်။
+Sign in with both accounts to verify that one user's data is not visible to the other.
 
 ## Sample-data privacy note
 
-- နမူနာ ကုမ္ပဏီ၊ လူနာမည်၊ အီးမေးလ်၊ URL နဲ့ မှတ်ချက်အားလုံး **fictional** ဖြစ်ပါတယ်။ တကယ့်လူ သို့မဟုတ် တကယ့်ကုမ္ပဏီကို ကိုယ်စားမပြုပါဘူး။
-- Demo account တွေကို စမ်းသပ်ရုံသာ သုံးပါ။ တကယ့် အသုံးပြုမယ်ဆိုရင် password နဲ့ `JWT_SECRET` ကို ပြောင်းပါ။
-- ကိုယ်ရေးကိုယ်တာ အချက်အလက်တွေကို demo data ထဲ ထည့်မရေးပါနဲ့။
+- All sample companies, names, emails, URLs and notes are **fictional**. They do not represent real people or companies.
+- Use demo accounts for testing only. For real use, change the passwords and `JWT_SECRET`.
+- Do not put personal information into the demo data.
 
-## အမြန်စမ်းသပ်နည်း (smoke test)
+## Quick smoke test
 
-1. MongoDB run နေပြီး environment values ပြည့်နေပါစေ။
-2. `npm run install:all` → `npm run seed` တွန်းပါ။
-3. `npm run dev:server` နဲ့ `npm run dev:client` ကို terminal ၂ ခုမှာ ဖွင့်ပါ။
-4. Website မှာ `demo@jobtracker.test` / `Demo@123` နဲ့ login လုပ်ပါ။
-5. Dashboard မှာ stats တွေ မြင်ရပါမယ်။ Application တစ်ခု ဖန်တီး၊ ပြင်၊ ရှာ၊ export လုပ်ကြည့်ပါ။
-6. `other@jobtracker.test` နဲ့ login ပြောင်းပြီး ပထမ account ရဲ့ application ကို မမြင်ရတာ စစ်ပါ။
+1. Make sure MongoDB is running and the environment values are filled in.
+2. Run `npm run install:all`, then `npm run seed`.
+3. Start `npm run dev:server` and `npm run dev:client` in two terminals.
+4. Sign in at the website with `demo@jobtracker.test` / `Demo@123`.
+5. You should see stats on the dashboard. Create, edit, search and export an application.
+6. Sign in as `other@jobtracker.test` and confirm the first account's applications are not visible.
 
 ## Troubleshooting
 
-| ပြဿနာ | ဖြစ်နိုင်တဲ့အကြောင်းရင်း | ဖြေရှင်းနည်း |
+| Problem | Likely cause | Fix |
 | --- | --- | --- |
-| `ECONNREFUSED 127.0.0.1:27017` | MongoDB မဖွင့်ထားတာ | MongoDB service ကို စတင်ပြီး `MONGODB_URI` ကို ပြန်စစ်ပါ |
-| API port `5001` သုံးလို့ မရဘူး | အခြား process က သုံးနေတာ | ကိုယ့် port ကို ပြောင်းပြီး `CLIENT_ORIGIN` နဲ့ `VITE_API_URL` ကို ညှိပါ |
-| Website port `5174` သုံးလို့ မရဘူး | အခြား project နဲ့ တိုက်နေတာ | Vite ကို တခြား port ပေးပြီး API ရဲ့ `CLIENT_ORIGIN` ကို ပြောင်းပါ |
-| Login မှာ `401` ပြတယ် | Password မှားတာ သို့မဟုတ် token ကုန်ပြီ | Demo credentials ကို ပြန်စစ်ပါ၊ ပြီးရင် logout လုပ်ပြီး ပြန် login လုပ်ပါ |
-| CORS error တက်တယ် | `CLIENT_ORIGIN` နဲ့ website URL မကိုက်တာ | `http://localhost:5174` မှန်မမှန် စစ်ပါ |
-| Seed မှာ email duplicate ဆိုတယ် | အရင်က seed လုပ်ထားပြီးသား | Seed က idempotent ဖြစ်တာကြောင့် ဆက်လုပ်လို့ရပါတယ်; error ဆိုရင် env email တွေ ပြန်စစ်ပါ |
-| `npm` command မတွေ့ဘူး | Node.js မတပ်ထားတာ | Node.js 18+ တပ်ပြီး terminal အသစ်ဖွင့်ပါ |
-| CSV download မဖြစ်ဘူး | Token မပါတာ သို့မဟုတ် export request မရောက်တာ | Login ပြန်လုပ်ပြီး [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) ထဲက curl ဥပမာနဲ့ စစ်ပါ |
+| `ECONNREFUSED 127.0.0.1:27017` | MongoDB is not running | Start the MongoDB service and check `MONGODB_URI` |
+| API port `5001` unavailable | Another process is using it | Change your port and update `CLIENT_ORIGIN` and `VITE_API_URL` |
+| Website port `5174` unavailable | Conflict with another project | Give Vite another port and update the API's `CLIENT_ORIGIN` |
+| Login returns `401` | Wrong password or expired token | Check the demo credentials, then log out and sign in again |
+| CORS error | `CLIENT_ORIGIN` does not match the website URL | Check that it is `http://localhost:5174` |
+| Seed reports duplicate email | Seed was already run | The seed is idempotent, so it is safe to continue; if there is an error, check the env emails |
+| `npm` command not found | Node.js is not installed | Install Node.js 18+ and open a new terminal |
+| CSV download fails | Token missing or export request did not arrive | Sign in again and test with the curl example in [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) |
 
-## Zip လုပ်နည်း
+## Creating a zip
 
-Project root မှာ PowerShell နဲ့:
+From the project root in PowerShell:
 
 ```powershell
 ./make-zip.ps1
 ```
 
-`make-zip.ps1` က source တွေကို zip ထဲ ထည့်ပေးပါတယ်။ `node_modules`, `dist`, `build`, `.git`, `.env` နဲ့ `.log` file တွေကို ဖယ်ထားလို့ zip က သေးပြီး secret တွေ မပါပါဘူး။
+`make-zip.ps1` puts the source files into a zip. It excludes `node_modules`, `dist`, `build`, `.git`, `.env` and `.log` files, so the zip stays small and contains no secrets.
 
-## နောက်ထပ်ဖတ်ရမယ့်စာရွက်တွေ
+## Further reading
 
-- [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) — endpoint အသေးစိတ်၊ response shape၊ status code၊ curl ဥပမာ
-- [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) — file tree အပြည့်အစုံနဲ့ data flow ပုံ
-- [BEGINNER_GUIDE.md](./BEGINNER_GUIDE.md) — request တစ်ခု ဘယ်လို စီးဆင်းသလဲ၊ ဘယ်ကနေ ဖတ်စတင်မလဲ
+- [API_DOCUMENTATION.md](./API_DOCUMENTATION.md) — endpoint details, response shapes, status codes, curl examples
+- [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) — complete file tree and data-flow diagram
+- [BEGINNER_GUIDE.md](./BEGINNER_GUIDE.md) — how a request flows and where to start reading
