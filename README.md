@@ -7,6 +7,20 @@ Job Application Tracker ဟာ ကိုယ်လျှောက်ထားခ�
 - **server/** — Express API + MongoDB (data သိမ်းတဲ့နေရာ)
 - **client/** — React/Vite website (အသုံးပြုသူ မြင်ရတဲ့နေရာ)
 
+## အကျဉ်း — ဒီ project က ဘာလဲ? (At a glance)
+
+| | |
+| --- | --- |
+| **Project** | Job Application Tracker |
+| **အမျိုးအစား** | Full-stack web app — အလုပ်လျှောက်လွှာတွေကို ကိုယ်တိုင် စီမံတဲ့ personal organizer |
+| **ဘာလုပ်ပေးလဲ** | လျှောက်ထားခဲ့တဲ့ အလုပ်တွေကို status / follow-up / interview အလိုက် မှတ်သား, search + filter + sort, dashboard, CSV export |
+| **Tech** | React + Vite · Node.js + Express · MongoDB + Mongoose · JWT + bcrypt |
+| **Ports** | API `5001` · Website `5174` |
+| **Demo login** | `demo@jobtracker.test / Demo@123` (နမူနာ ၁၂ ခု), `other@jobtracker.test / Other@123` (သီးခြား user) |
+| **အခြေအနေ** | ပြီးစီးပြီး demo project။ အချက်အလက်အားလုံး **fictional** ဖြစ်ပါတယ်။ |
+
+**In short (English):** A full-stack personal tracker for job applications. Log companies, roles, statuses, follow-up and interview dates; search and filter them; see dashboard stats; export to CSV. Each signed-in user only sees their own data. Built with React, Express and MongoDB as a learning/demo project with fictional data.
+
 ## ရည်ရွယ်ချက်
 
 အလုပ်ရှာနေတဲ့သူတစ်ယောက်အနေနဲ့ အောက်ပါအချက်တွေ လွယ်လွယ်လုပ်နိုင်အောင် ဒီ app က ကူညီပါတယ်။
